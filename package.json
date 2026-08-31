@@ -1,0 +1,28 @@
+{
+  "name": "cse340",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Degreatjoe/cse340#readme",
+  "bugs": {
+    "url": "https://github.com/Degreatjoe/cse340/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Degreatjoe/cse340.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
