@@ -6,10 +6,9 @@
     <h2>Check out our service projects categories</h2>
 
     <ul>
-        <li>Environmental - Participate in initiatives to protect and preserve our environment.</li>
-        <li>Educational - Support educational programs and initiatives.</li>
-        <li>Community Service - Engage in activities that benefit your local community.</li>
-        <li>Health and Wellness - Promote healthy lifestyles and well-being.</li>
+        <% categories.forEach(category => { %>
+            <li><%= category.name %></li>
+        <% }); %>
     </ul>
 </main>
 <%- include('partials/footer') %>

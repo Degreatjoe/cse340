@@ -111,3 +111,68 @@ VALUES
      'UnityServe Volunteer Center',
      '2026-11-02');
 
+select * from projects;
+
+
+
+-- categories table
+CREATE TABLE categories (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- junction table ( for many to many relationship )
+CREATE TABLE project_categories (
+    project_id INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    PRIMARY KEY (project_id, category_id),
+
+    CONSTRAINT fk_project
+        FOREIGN KEY (project_id)
+        REFERENCES projects(project_id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_category
+        FOREIGN KEY (category_id)
+        REFERENCES categories(category_id)
+        ON DELETE CASCADE
+);
+
+-- seed data for category
+INSERT INTO categories (name)
+VALUES
+    ('Community Development'),
+    ('Environment'),
+    ('Education'),
+    ('Food & Agriculture'),
+    ('Volunteer Support');
+
+
+-- seed data for project_category
+INSERT INTO project_categories (project_id, category_id)
+VALUES
+    -- BrightFuture Builders
+    (1, 1),
+    (2, 1),
+    (3, 1),
+    (4, 1),
+    (5, 3),
+
+    -- GreenHarvest Growers
+    (6, 2),
+    (7, 3),
+    (8, 3),
+    (9, 2),
+    (10, 4),
+
+    -- UnityServe Volunteers
+    (11, 5),
+    (12, 5),
+    (13, 1),
+    (14, 5),
+    (15, 5);
+INSERT INTO project_categories (project_id, category_id)
+VALUES
+    (5, 2);
+
