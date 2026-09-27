@@ -7,10 +7,23 @@ const NUMBER_OF_UPCOMING_PROJECTS = 5;
 
 // Define any controller functions
 const showProjectsPage = async (req, res) => {
-    const projects = await getUpcomingProjects(NUMBER_OF_UPCOMING_PROJECTS);
-    const title =  "Upcoming Service Projects";
+    const title = "Upcoming Service Projects";
 
-    res.render('projects', { title, projects });
+    try {
+        const projects = await getUpcomingProjects(NUMBER_OF_UPCOMING_PROJECTS);
+
+        const formattedProjects = projects.map(project => ({
+            ...project,
+            date: project.date
+                ? new Date(project.date).toLocaleDateString()
+                : 'TBD'
+        }));
+
+        res.render('projects', { title, projects: formattedProjects });
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        res.status(500).send('Unable to load projects');
+    }
 };
 
 const showProjectDetailsPage = async (req, res) => {

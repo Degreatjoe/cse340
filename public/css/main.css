@@ -59,6 +59,10 @@ img {
   height: auto;
 }
 
+#pdlink {
+  text-decoration: none;
+  color: inherit;
+}
 a {
   color: var(--color-primary);
   text-decoration-thickness: 0.1em;

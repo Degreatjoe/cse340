@@ -18,6 +18,14 @@ router.get('/project/:id', showProjectDetailsPage);
 router.get('/categories', showCategoriesPage);
 router.get('/category/:id', showCategoryDetailsPage);
 
+
+// router.get('/category/:id', (req, res) => {
+//     console.log('CATEGORY ROUTE HIT');
+//     console.log('ID:', req.params.id);
+
+//     res.send(`Category ID: ${req.params.id}`);
+// });
+
 // error-handling routes
 router.get('/test-error', testErrorPage);
 

@@ -15,14 +15,13 @@ const showCategoriesPage = async (req, res) => {
 
 const showCategoryDetailsPage = async (req, res) => {
     const categoryId = req.params.id;
-    const [category, projects] = await Promise.all([
-        getCategoryDetails(categoryId),
-        getProjectsByCategoryId(categoryId)
-    ]);
+    const category = await getCategoryDetails(categoryId);
+    const projects = await getProjectsByCategoryId(categoryId);
     const title = 'Category Details';
 
     res.render('category', { title, category, projects });
 };
+
 
 // Export any controller functions
 export { showCategoriesPage, showCategoryDetailsPage };
