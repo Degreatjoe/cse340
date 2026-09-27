@@ -11,5 +11,12 @@
     <p><strong>Date:</strong> <%= project.date %></p>
     <p><strong>Organization:</strong> <a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a></p>
 
+    <h3>Categories</h3>
+    <div class="category-tags">
+        <% categories.forEach(category => { %>
+            <a href="/category/<%= category.category_id %>"><%= category.name %></a>
+        <% }); %>
+    </div>
+
 </main>
 <%- include('partials/footer') %>

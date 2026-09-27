@@ -263,6 +263,28 @@ main > ul > li strong {
   font-size: 1.1rem;
 }
 
+.category-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.category-tags a {
+  padding: 0.3rem 0.75rem;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.category-tags a:hover {
+  color: var(--color-accent-dark);
+  background: #ffffff;
+}
+
 /* Footer */
 footer {
   padding: 1.5rem 1rem;
