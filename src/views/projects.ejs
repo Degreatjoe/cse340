@@ -6,12 +6,14 @@
     <h2>Upcoming Service Projects</h2>
     <ul>
         <% projects.forEach(project => { %>
-            <li>
-                <h3><%= project.title %></h3>
-                <p><%= project.description %></p>
-                <p><strong>Location:</strong> <%= project.location %></p>
-                <p><strong>Date:</strong> <%= project.date %></p>
-            </li>
+            <a href="/project/<%= project.project_id %>">
+                <li>
+                    <h3><%= project.title %></h3>
+                    <p><%= project.description %></p>
+                    <p><strong>Location:</strong> <%= project.location %></p>
+                    <p><strong>Date:</strong> <%= project.date %></p>
+                </li>
+            </a>
         <% }); %>
     </ul>
 </main>
