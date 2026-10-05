@@ -60,3 +60,17 @@ export const createOrganization = async (name, description, contactEmail, logoFi
 
     return result.rows[0].organization_id;
 };
+
+  export const updateOrganization = async (id, name, description, contactEmail, logoFilename) => {
+    const query = `
+      UPDATE organization
+      SET name = $2,
+        description = $3,
+        contact_email = $4,
+        logo_filename = $5
+      WHERE organization_id = $1
+    `;
+
+    const queryParams = [id, name, description, contactEmail, logoFilename];
+    await db.query(query, queryParams);
+  };

@@ -5,6 +5,8 @@
 
     <h2><%= project.title %></h2>
 
+    <p><a href="/edit-project/<%= project.project_id %>">Edit Project</a></p>
+
     <p>Description: <%= project.description %></p>
 
     <p><strong>Location:</strong> <%= project.location %></p>
@@ -12,6 +14,7 @@
     <p><strong>Organization:</strong> <a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a></p>
 
     <h3>Categories</h3>
+    <p><a href="/assign-categories/<%= project.project_id %>">Edit Categories</a></p>
     <div class="category-tags">
         <% categories.forEach(category => { %>
             <a href="/category/<%= category.category_id %>"><%= category.name %></a>
