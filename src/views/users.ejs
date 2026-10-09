@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<main>
+    <h1><%= title %></h1>
+
+    <div class="data-table-wrap">
+        <table class="data-table">
+            <caption>Registered user accounts and assigned roles</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(registeredUser => { %>
+                    <tr>
+                        <td><%= registeredUser.name %></td>
+                        <td><%= registeredUser.email %></td>
+                        <td><%= registeredUser.role_name %></td>
+                    </tr>
+                <% }); %>
+                <% if (users.length === 0) { %>
+                    <tr>
+                        <td colspan="3">No registered users found.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
+<%- include('partials/footer') %>
