@@ -26,9 +26,9 @@ export const getAllProjects = async () => {
     }
 };
 
-export const getUpcomingProjects = async (number_of_projects) => {
+export const getUpcomingProjects = async (numberOfProjects) => {
     const query = `
-        SELECT 
+        SELECT
             p.project_id,
             o.name AS organization_name,
             p.organization_id,
@@ -36,8 +36,8 @@ export const getUpcomingProjects = async (number_of_projects) => {
             p.description,
             p.location,
             p.date
-        FROM projects AS p
-        JOIN organization AS o
+        FROM public.projects AS p
+        JOIN public.organization AS o
             ON p.organization_id = o.organization_id
         WHERE p.date > CURRENT_DATE
         ORDER BY p.date
@@ -45,7 +45,7 @@ export const getUpcomingProjects = async (number_of_projects) => {
     `;
 
     try {
-        const result = await db.query(query, [number_of_projects]);
+        const result = await db.query(query, [numberOfProjects]);
         return result.rows;
     } catch (error) {
         console.error('Error fetching upcoming projects:', error);

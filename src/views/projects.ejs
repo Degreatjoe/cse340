@@ -2,12 +2,10 @@
 <%- include('partials/header') %>
 <main>
     <h1><%= title %></h1>
-    <!-- Put your page-specific content here -->
-    <h2>Upcoming Service Projects</h2>
     <% if (user && user.role_name === 'admin') { %>
         <p><a href="/new-project">Add a New Service Project</a></p>
     <% } %>
-    <ul>
+    <ul class="content-grid project-grid">
         <% projects.forEach(project => { %>
                 <li><a href="/project/<%= project.project_id %>" id="pdlink">
                     <h3><%= project.title %></h3>

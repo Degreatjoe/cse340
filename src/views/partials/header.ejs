@@ -23,12 +23,10 @@
     </nav>
     
     <% const messages = flash(); %>
-    <% Object.keys(messages).forEach(type => { %>
-        <% if (messages[type].length > 0) { %>
-            
-                <% messages[type].forEach(msg => { %>
-                    <%= msg %>
-                <% }); %>
-            
-        <% } %>
-    <% }); %>
+    <section class="flash-messages" aria-live="polite" aria-atomic="true">
+        <% Object.keys(messages).forEach(type => { %>
+            <% messages[type].forEach(msg => { %>
+                <p class="flash-message flash-<%= type %>"><%= msg %></p>
+            <% }); %>
+        <% }); %>
+    </section>

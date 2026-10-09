@@ -8,7 +8,7 @@
         <p><a href="/new-category">Add a Category</a></p>
     <% } %>
 
-    <ul>
+    <ul class="content-grid category-grid">
         <% categories.forEach(category => { %>
             <li><a href="/category/<%= category.category_id %>"><%= category.name %></a></li>
         <% }); %>
